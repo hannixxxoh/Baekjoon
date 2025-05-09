@@ -1,14 +1,15 @@
 N = int(input())
 NGE = list(map(int, input().split()))
 
-place = [-1]*N
-temp = []
+answer = [-1]*N
+stack = []
 
 for i in range(N):
-    while temp and NGE[temp[-1]] < NGE[i]:
-        place[temp.pop()] = NGE[i]
-    temp.append(i)
+    while stack and NGE[stack[-1]] < NGE[i]:
+        answer[stack.pop()] = NGE[i]
+    stack.append(i)
+    print(stack, i)
 
 
-for ans in place:
+for ans in answer:
     print(ans, end = " ")
